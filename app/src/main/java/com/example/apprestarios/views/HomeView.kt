@@ -1,58 +1,45 @@
 package com.example.apprestarios.views
 
-import android.annotation.SuppressLint
-import androidx.annotation.ContentView
-import androidx.compose.foundation.layout.Column
-import androidx.compose.material3.Button
-import androidx.compose.material3.CenterAlignedTopAppBar
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.graphics.Color
-import com.example.apprestarios.MainActivity
-import com.example.apprestarios.components.ActionButton
-import com.example.apprestarios.components.MainButton
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import com.example.apprestarios.components.Recetas
 
 
-@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
-@OptIn(ExperimentalMaterial3Api::class)
+// HomeView.kt
 @Composable
-fun Inicio(){
-    Scaffold (
-        topBar = {
-            CenterAlignedTopAppBar(
-                title = { Text(text = "MENU") },
-                colors = TopAppBarDefaults.centerAlignedTopAppBarColors(containerColor = Color.Red)
-            )
-        },
-    ){
-       // ContentView()
+fun HomeView(navController: NavController) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp)
+    ) {
+        Text(text = "Recetario", style = MaterialTheme.typography.headlineMedium)
+        Spacer(modifier = Modifier.height(16.dp))
+        LazyColumn {
+            items(Recetas.listaRecetas) { receta ->
+                Card(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 8.dp),
+                    onClick = {
+                        // Navegamos a "Detalle" con el recetaId como parámetro
+                        navController.navigate("Detalle/${receta.id}")
+                    }
+                ) {
+                    Column(
+                        modifier = Modifier.padding(16.dp)
+                    ) {
+                        Text(text = receta.nombre, style = MaterialTheme.typography.headlineSmall)
+                        Text(text = receta.descripcion, style = MaterialTheme.typography.bodyMedium)
+                    }
+                }
+            }
+        }
     }
 }
-
-/*==@Composable
-fun ContentView(){
-   Column {
-    MainButton("Receta 1", Color.Red, Color.Black) {
-       Receta1()
-   }
-
-   MainButton("Receta2", Color.Red, Color.Black) {
-       Receta2()
-   }
-
-   MainButton("Receta3", Color.Red, Color.Black) {
-       Receta3()
-   }
-
-   MainButton("Receta4", Color.Red, Color.Black) {
-      Receta4()
-   }
-
-   }
-*/
-
-
-

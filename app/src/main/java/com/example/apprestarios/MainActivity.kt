@@ -14,10 +14,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.compose.rememberNavController
+import com.example.apprestarios.navigation.NavManager
 import com.example.apprestarios.ui.theme.AppRestariosTheme
-import com.example.apprestarios.views.Inicio
-import com.example.apprestarios.views.Receta1
-import com.example.apprestarios.views.Receta2
+
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,18 +35,10 @@ class MainActivity : ComponentActivity() {
 @Preview (showBackground = true)
 @Composable
 fun GreetingPreview(){
-    Column {
-    Inicio()
-        Button(
-            onClick = {
-                val receta1 = Receta1()
-                receta1.mostrarReceta()
-            },
-            modifier = Modifier.padding(10.dp)
-        ) {
-            Text("RECETA 01")
-        }
+//val navController = rememberNavController()
+//                    NavManager(navController = navController)
+    NavManager()
 
-    }
+
 }
 
