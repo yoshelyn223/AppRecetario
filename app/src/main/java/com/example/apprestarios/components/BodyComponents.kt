@@ -10,6 +10,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.CutCornerShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.KeyboardArrowRight
@@ -30,10 +32,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.apprestarios.ui.theme.ItemColor
 
-@Composable
-fun TitleView(name: String, color: Color) {
-    Text(text= name, fontSize = 25.sp, color = color)
-}
 
 @Composable
 fun Spacers() {
@@ -41,13 +39,12 @@ fun Spacers() {
 }
 
 @Composable
-fun MainButton(name: String, backcolor: Color, fontColor: Color, onClick: () -> Unit) {
-    Button(onClick = onClick, colors =
-    ButtonDefaults.buttonColors(
-        contentColor = fontColor,
+fun MainButton(name:String, backcolor: Color, color: Color, onClick: () -> Unit){
+    Button(onClick = onClick, colors = ButtonDefaults.buttonColors(
+        contentColor = color,
         containerColor = backcolor
     )) {
-        Text(name)
+        Text(text = name)
     }
 }
 
@@ -58,8 +55,9 @@ fun CardItem(name: String, img: Int, onClick: () -> Unit) {
             .fillMaxWidth()
             .padding(8.dp)
             .clickable { onClick() },
-        shape = RoundedCornerShape(12.dp),
-        elevation = CardDefaults.cardElevation(6.dp),
+        //shape = RoundedCornerShape(12.dp),
+        shape = CutCornerShape(16.dp),
+                elevation = CardDefaults.cardElevation(6.dp),
         colors = CardDefaults.cardColors(containerColor = ItemColor)
     ) {
         Row(
@@ -71,7 +69,8 @@ fun CardItem(name: String, img: Int, onClick: () -> Unit) {
                 contentDescription = "Un Rico $name",
                 modifier = Modifier
                     .size(64.dp)
-                    .clip(RoundedCornerShape(8.dp))
+                    //.clip(RoundedCornerShape(8.dp))
+                    .clip(CircleShape)
             )
             Spacer(modifier = Modifier.width(12.dp))
             Text(
@@ -80,13 +79,9 @@ fun CardItem(name: String, img: Int, onClick: () -> Unit) {
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.padding(horizontal = 8.dp)
             )
-            Spacer(modifier = Modifier.width(12.dp))
-            Icon(Icons.Outlined.KeyboardArrowRight, contentDescription = "Entrar")
+//            Spacer(modifier = Modifier.width(12.dp))
+//            Icon(Icons.Outlined.KeyboardArrowRight, contentDescription = "Entrar")
 
         }
     }
-}
-
-fun MainItem() {
-
 }

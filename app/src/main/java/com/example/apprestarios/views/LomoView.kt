@@ -1,7 +1,6 @@
 package com.example.apprestarios.views
 
 import android.annotation.SuppressLint
-import androidx.annotation.ContentView
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -18,7 +17,6 @@ import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -41,28 +39,28 @@ import com.example.apprestarios.ui.theme.FontColor
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun RecetaView(navController: NavController){
+fun LomoView(navController: NavController){
     Scaffold (
         topBar = {
             CenterAlignedTopAppBar(
                 title = {
-                    TitleBar("Espagueti verde con queso philadelphia")
+                    TitleBar("Lomo con Gravy")
                 },
                 colors = TopAppBarDefaults.centerAlignedTopAppBarColors(containerColor = FontColor),
                 navigationIcon = {
-                    MainIconButton(Icons.AutoMirrored.Filled.ArrowBack){
+                    MainIconButton(Icons.AutoMirrored.Filled.ArrowBack) {
                         navController.popBackStack()
                     }
                 }
             )
         }
     ){
-       ContentView(navController)
+        ContentView(navController)
     }
 }
 
 @Composable
-private fun ContentView(navController: NavController) {
+private fun ContentView(navController: NavController){
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -76,12 +74,11 @@ private fun ContentView(navController: NavController) {
             horizontalAlignment = Alignment.CenterHorizontally
 
         ) {
-
             Spacers()
             Spacers()
             Image(
-                painter = painterResource(id = R.drawable.spagetiverde),
-                contentDescription = "Espagueti verde con queso philadelphia",
+                painter = painterResource(id = R.drawable.lomogravy),
+                contentDescription = "Lomo con Gravy",
                 modifier = Modifier
                     .size(320.dp)
                     .clip(RoundedCornerShape(16.dp))
@@ -89,32 +86,32 @@ private fun ContentView(navController: NavController) {
             Text(
                 text = "Ingredientes",
                 fontSize = 30.sp,
-                fontWeight = FontWeight.ExtraBold,
+                fontWeight = FontWeight.Bold,
             )
             Spacers()
             Text(
-                text = "250 grs de Espagueti \n" +
-                        "300 grs Chile poblano asado, desvenados y limpios \n" +
-                        "340 grs Queso crema de philadelphia \n" +
-                        "2 botes de crema liquida\n" +
-                        "4 rebanadas de queso tipo manchego\n" +
-                        "150 grs de mantequilla sin sal\n",
+                text = "1 cucharada de jugo sazonador.\n" +
+                        "1 taza de agua.\n" +
+                        "1/2 taza de vino blanco.\n" +
+                        "2 cucharaditas de maicena.\n" +
+                        "3 cucharadas de miel.\n",
                 fontSize = 18.sp,
                 fontWeight = FontWeight.Normal,
-                modifier = Modifier.padding(horizontal = 8.dp)
+                modifier = Modifier.padding(horizontal = 24.dp)
             )
             Spacers()
             Text(
-                text = "Paso a paso",
+                text = "Preparacion",
                 fontSize = 30.sp,
                 fontWeight = FontWeight.Bold,
             )
             Spacers()
             Text(
-                text = "1. Cocer la pasta con unas gotas de acete y una pizca de sal, hasta que este blanda.\n" +
-                        "2. Licuar crema, queso crema, chiles, queso manchego. (Si esta muy espeso poner leche).\n" +
-                        "3. En una olla verter la mantequilla hasta que se derrita completamente, colocar la mezcla de las cremas y chile hasta que empiece a hervir.\n" +
-                        "4. Colocaar la pasta en la olla con la crema y los chiles, moverla poco a poco hasta qeu todo quede bien mezclado y listo.\n",
+                text = "1. Raspar los restos del jugo se coce con el lomo\n" +
+                        "2. Agregar unas cucharadas de agua caliente para que sea mas facil moverlo.\n" +
+                        "3. Calentar los restos de jugo de lomo, el vino blanco, una cucharada de miel, el agua y el jugo sazonador. Dejar hervir 10 minutos\n" +
+                        "4. Diluir la maicena en un poco de agua.\n"+
+                        "5. Añadir la maicena a la salsa gravy en fuego lento, mover para que no se pegue.\n",
                 fontSize = 18.sp,
                 fontWeight = FontWeight.Normal,
                 modifier = Modifier.padding(horizontal = 24.dp),
