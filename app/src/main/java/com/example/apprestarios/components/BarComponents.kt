@@ -13,10 +13,11 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import com.example.apprestarios.ui.theme.BotonSalirColor
 
 @Composable
 fun TitleBar(name:String){
-    Text(text = name, fontSize = 25.sp, fontWeight = FontWeight.Bold, color = Color.Black)
+    Text(text = name, fontSize = 25.sp, fontWeight = FontWeight.Bold, color = Color.White)
 }
 
 @Composable
@@ -36,7 +37,7 @@ fun ActionButton(color: Color) {
 
     FloatingActionButton(
         onClick = { (context as? android.app.Activity)?.finish()},
-        containerColor = color,
+        containerColor = BotonSalirColor,
         contentColor = Color.Black
     ) {
        // Icon(Icons.Filled.Add, contentDescription = "Add")

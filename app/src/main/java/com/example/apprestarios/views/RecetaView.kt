@@ -15,6 +15,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -103,6 +104,12 @@ private fun ContentView(navController: NavController) {
                 fontWeight = FontWeight.Normal,
                 modifier = Modifier.padding(horizontal = 8.dp)
             )
+
+            Divider(
+                color = Color.Gray,
+                thickness =  1.dp
+            )
+
             Spacers()
             Text(
                 text = "Paso a paso",
